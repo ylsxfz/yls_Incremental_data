@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    hive: #hive数据源
+      url: jdbc:hive2://192.168.133.101:10000/
+      type: com.alibaba.druid.pool.DruidDataSource
+      username: user
+      password: user
+      driver-class-name: org.apache.hive.jdbc.HiveDriver
+
+
+##实时数据提取的相关设置
+realtime:
+  data:
+    process:
+      #源数据库
+      source-database: waybill_source
+      #源数据表
+      source-table: waybill_source_002
+      #源数据转换为列式存储的数据表
+      source-parquet-table: waybill_base_parquet_002
+      #目标数据库
+      target-database: yls_waybill_result
+      #目标数据表
+      target-table: waybill_result
+      #分区字段
+      partition-field: action_date
+

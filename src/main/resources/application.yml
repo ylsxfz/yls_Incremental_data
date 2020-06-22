@@ -1,0 +1,20 @@
+###程序的端口
+server:
+  port: 8443
+  ## tomcat的相关配置
+  tomcat:
+    max-connections: 10000
+    max-threads: 500
+    uri-encoding: UTF-8
+  servlet:
+    session:
+      timeout: 30m
+###分开设置配置文件
+spring:
+  profiles:
+    active: hadoop,datasource,hive
+
+##日志服务器
+logging:
+  config: classpath:logback-spring.xml
+

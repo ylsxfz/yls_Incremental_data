@@ -1,0 +1,49 @@
+12:04:24.823 [main] INFO  com.fengtu.data.DataApplication - Starting DataApplication on DESKTOP-OSN5PFD with PID 6908 (E:\workspace\java_idea_workspace\fengtu_Incremental_data\target\classes started by yls in E:\workspace\java_idea_workspace\fengtu_Incremental_data)
+12:04:24.902 [main] INFO  com.fengtu.data.DataApplication - The following profiles are active: hadoop,datasource,hive
+12:04:28.944 [main] INFO  org.apache.coyote.http11.Http11NioProtocol - Initializing ProtocolHandler ["http-nio-8443"]
+12:04:28.960 [main] INFO  org.apache.catalina.core.StandardService - Starting service [Tomcat]
+12:04:28.960 [main] INFO  org.apache.catalina.core.StandardEngine - Starting Servlet Engine: Apache Tomcat/8.5.34
+12:04:28.960 [localhost-startStop-1] INFO  org.apache.catalina.core.AprLifecycleListener - The APR based Apache Tomcat Native library which allows optimal performance in production environments was not found on the java.library.path: [C:\Program Files\Java\jdk1.8.0_65\bin;C:\WINDOWS\Sun\Java\bin;C:\WINDOWS\system32;C:\WINDOWS;C:\yls_prgram_files\Anaconda3-5.1.0-Windows-x86_64;C:\yls_prgram_files\Anaconda3-5.1.0-Windows-x86_64\Library\mingw-w64\bin;C:\yls_prgram_files\Anaconda3-5.1.0-Windows-x86_64\Library\usr\bin;C:\yls_prgram_files\Anaconda3-5.1.0-Windows-x86_64\Library\bin;C:\yls_prgram_files\Anaconda3-5.1.0-Windows-x86_64\Scripts;C:\ProgramData\Oracle\Java\javapath;C:\WINDOWS\system32;C:\WINDOWS;C:\WINDOWS\System32\Wbem;C:\WINDOWS\System32\WindowsPowerShell\v1.0\;C:\WINDOWS\System32\OpenSSH\;C:\Program Files\Java\jdk1.8.0_65\bin;C:\Program Files\Java\jdk1.8.0_65\jre\bin;C:\Program Files\Microsoft VS Code\bin;C:\yls_prgram_files\nodejs\;C:\yls_prgram_files\Git\cmd;C:\yls_prgram_files\apache-maven-3.6.1\bin;C:\yls_prgram_files\nodejs;C:\yls_prgram_files\nodejs\node_global;C:\yls_prgram_files\Sencha\Cmd;C:\Users\26896\AppData\Local\Programs\Python\Python35\Scripts\;C:\Users\26896\AppData\Local\Programs\Python\Python35\;C:\Users\26896\AppData\Local\Microsoft\WindowsApps;C:\Users\26896\AppData\Roaming\npm;.]
+12:04:29.241 [localhost-startStop-1] INFO  org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/] - Initializing Spring embedded WebApplicationContext
+12:04:30.110 [main] INFO  org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [
+	name: default
+	...]
+12:04:30.219 [main] INFO  org.hibernate.Version - HHH000412: Hibernate Core {5.2.17.Final}
+12:04:30.219 [main] INFO  org.hibernate.cfg.Environment - HHH000206: hibernate.properties not found
+12:04:30.313 [main] INFO  org.hibernate.annotations.common.Version - HCANN000001: Hibernate Commons Annotations {5.0.1.Final}
+12:04:30.579 [main] ERROR com.alibaba.druid.pool.DruidDataSource - testWhileIdle is true, validationQuery not set
+12:04:30.579 [main] INFO  com.alibaba.druid.pool.DruidDataSource - {dataSource-1} inited
+12:04:30.595 [Druid-ConnectionPool-Create-1578959831] INFO  org.apache.hive.jdbc.Utils - Supplied authorities: 192.168.133.101:10000
+12:04:30.595 [Druid-ConnectionPool-Create-1578959831] INFO  org.apache.hive.jdbc.Utils - Resolved authority: 192.168.133.101:10000
+12:04:51.819 [Druid-ConnectionPool-Create-1578959831] WARN  org.apache.hive.jdbc.HiveConnection - Failed to connect to 192.168.133.101:10000
+12:04:51.819 [Druid-ConnectionPool-Create-1578959831] ERROR com.alibaba.druid.pool.DruidDataSource - create connection SQLException, url: jdbc:hive2://192.168.133.101:10000/, errorCode 0, state  08S01
+java.sql.SQLException: Could not open client transport with JDBC Uri: jdbc:hive2://192.168.133.101:10000/: java.net.ConnectException: Connection timed out: connect
+	at org.apache.hive.jdbc.HiveConnection.<init>(HiveConnection.java:224) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	at org.apache.hive.jdbc.HiveDriver.connect(HiveDriver.java:107) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1513) ~[druid-1.1.9.jar:1.1.9]
+	at com.alibaba.druid.pool.DruidAbstractDataSource.createPhysicalConnection(DruidAbstractDataSource.java:1578) ~[druid-1.1.9.jar:1.1.9]
+	at com.alibaba.druid.pool.DruidDataSource$CreateConnectionThread.run(DruidDataSource.java:2466) [druid-1.1.9.jar:1.1.9]
+Caused by: org.apache.thrift.transport.TTransportException: java.net.ConnectException: Connection timed out: connect
+	at org.apache.thrift.transport.TSocket.open(TSocket.java:226) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.thrift.transport.TSaslTransport.open(TSaslTransport.java:266) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.thrift.transport.TSaslClientTransport.open(TSaslClientTransport.java:37) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.hive.jdbc.HiveConnection.openTransport(HiveConnection.java:311) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	at org.apache.hive.jdbc.HiveConnection.<init>(HiveConnection.java:196) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	... 4 more
+Caused by: java.net.ConnectException: Connection timed out: connect
+	at java.net.DualStackPlainSocketImpl.connect0(Native Method) ~[?:1.8.0_65]
+	at java.net.DualStackPlainSocketImpl.socketConnect(DualStackPlainSocketImpl.java:79) ~[?:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.doConnect(AbstractPlainSocketImpl.java:350) ~[?:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.connectToAddress(AbstractPlainSocketImpl.java:206) ~[?:1.8.0_65]
+	at java.net.AbstractPlainSocketImpl.connect(AbstractPlainSocketImpl.java:188) ~[?:1.8.0_65]
+	at java.net.PlainSocketImpl.connect(PlainSocketImpl.java:172) ~[?:1.8.0_65]
+	at java.net.SocksSocketImpl.connect(SocksSocketImpl.java:392) ~[?:1.8.0_65]
+	at java.net.Socket.connect(Socket.java:589) ~[?:1.8.0_65]
+	at org.apache.thrift.transport.TSocket.open(TSocket.java:221) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.thrift.transport.TSaslTransport.open(TSaslTransport.java:266) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.thrift.transport.TSaslClientTransport.open(TSaslClientTransport.java:37) ~[libthrift-0.9.3.jar:0.9.3]
+	at org.apache.hive.jdbc.HiveConnection.openTransport(HiveConnection.java:311) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	at org.apache.hive.jdbc.HiveConnection.<init>(HiveConnection.java:196) ~[hive-jdbc-2.3.0.jar:2.3.0]
+	... 4 more
+12:04:51.835 [Druid-ConnectionPool-Create-1578959831] INFO  org.apache.hive.jdbc.Utils - Supplied authorities: 192.168.133.101:10000
+12:04:51.835 [Druid-ConnectionPool-Create-1578959831] INFO  org.apache.hive.jdbc.Utils - Resolved authority: 192.168.133.101:10000

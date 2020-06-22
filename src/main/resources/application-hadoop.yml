@@ -1,0 +1,17 @@
+hadoop:
+  #yarn的相关地址
+  yarn:
+    resourcemanager:
+      address: 192.168.133.101:8032
+  #hdfs的地址
+  hdfs:
+    address: hdfs://192.168.133.101:9000/
+    uploadfolder: /waybill/waybill_source_002
+
+
+
+copy:
+  last:
+    day:
+      sourcefolder: E:\\uploaFileTemp\\fengtu
+      targetfolder: E:\\uploaFileTemp\\fengtu_bakup\\
