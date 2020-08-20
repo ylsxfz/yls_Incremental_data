@@ -25,3 +25,5 @@ realtime:
       #分区字段
       partition-field: action_date
 
+hiveconf-list: mapred.max.split.size=25600000;
+          mapred.min.split.size.per.node=25600000;

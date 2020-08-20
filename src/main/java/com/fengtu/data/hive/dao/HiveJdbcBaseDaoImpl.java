@@ -7,6 +7,8 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Repository;
 
 import javax.sql.DataSource;
+import java.sql.SQLException;
+import java.sql.Statement;
 
 /**
 * -注入hive数据源
@@ -19,13 +21,20 @@ public class HiveJdbcBaseDaoImpl {
 	
 	private JdbcTemplate jdbcTemplate;
 
+	private Statement statement;
+
 	public JdbcTemplate getJdbcTemplate() {
 		return jdbcTemplate;
 	}
 
+	public Statement getStatement() {
+		return statement;
+	}
+
 	@Autowired
-	public void setJdbcTemplate(@Qualifier("hiveDruidDataSource") DataSource dataSource) {
+	public void setJdbcTemplate(@Qualifier("hiveDruidDataSource") DataSource dataSource) throws SQLException {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
+		this.statement = dataSource.getConnection().createStatement();
 	}
 	
 }

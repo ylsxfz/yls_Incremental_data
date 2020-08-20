@@ -15,3 +15,11 @@ copy:
     day:
       sourcefolder: E:\\uploaFileTemp\\fengtu
       targetfolder: E:\\uploaFileTemp\\fengtu_bakup\\
+
+
+hive:
+  down:
+    targetfolder: E:\\uploaFileTemp\\download
+    sql:
+      search: select * from waybill_source.waybill_base_parquet where month =
+      download: select * from waybill_source.waybill_base_parquet where month =

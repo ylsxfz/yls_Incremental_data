@@ -4,6 +4,7 @@ import com.fengtu.data.config.FileFolderPOJO;
 import com.fengtu.data.hdfs.config.HadoopConf;
 import com.fengtu.data.hdfs.utils.HdfsClientUtils;
 import com.fengtu.data.hive.impl.HiveServiceImpl;
+import com.fengtu.data.service.ExecuteHiveByDayImpl;
 import com.fengtu.data.service.RealDataProServiceImpl;
 import com.fengtu.data.utils.DateUtils;
 import com.fengtu.data.utils.FileScanUtils;
@@ -30,25 +31,31 @@ public class AppTaskQuartz {
     //日志
     private static final Logger LOGGER = LoggerFactory.getLogger(AppTaskQuartz.class);
 
-    private static  boolean isRun = false;
+    private static boolean isRun = false;
+
+//    @Autowired
+//    private RealDataProServiceImpl realDataProService;
 
     @Autowired
-    private RealDataProServiceImpl realDataProService;
+    private ExecuteHiveByDayImpl executeHiveByDay;
 
-    //@Scheduled(cron = "0 0 12  * * * ")
-    @Scheduled(cron = "0/20 * * * * * ")
-    public void  AppTaskRun(){
-       LOGGER.info("=》AppTaskQuartz定时器-----------run；");
-       try {
-           if (!isRun){
-               realDataProService.mainJobRun();
-               isRun = true;
-           }
-           LOGGER.info("测试完成。");
-       }catch (Exception e){
+    @Scheduled(cron = "0 0 8  * * * ")
+    //@Scheduled(cron = "0/20 * * * * * ")
+    public void AppTaskRun() {
+        LOGGER.info("=》AppTaskQuartz定时器-----------run；");
+        try {
+//            if (!isRun) {
+////               realDataProService.mainJobRun();
+//                executeHiveByDay.mainJob();
+//                isRun = true;
+//            }
+//            LOGGER.info("测试完成。");
+
+            executeHiveByDay.mainJob();
+        } catch (Exception e) {
             e.printStackTrace();
-            LOGGER.error("定时器执行出现异常："+e.getMessage());
-       }
+            LOGGER.error("定时器执行出现异常：" + e.getMessage());
+        }
 
 
     }
