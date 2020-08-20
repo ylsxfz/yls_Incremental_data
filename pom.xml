@@ -19,7 +19,7 @@
         <!-- hadoop -->
         <hadoop.version>2.6.0</hadoop.version>
         <!-- hive -->
-        <hive.version>2.3.0</hive.version>
+        <hive.version>2.3.4</hive.version>
     </properties>
 
     <dependencies>
