@@ -17,7 +17,7 @@
     <properties>
         <java.version>1.8</java.version>
         <!-- hadoop -->
-        <hadoop.version>2.6.0</hadoop.version>
+        <hadoop.version>3.2.3</hadoop.version>
         <!-- hive -->
         <hive.version>2.3.0</hive.version>
     </properties>
